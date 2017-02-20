@@ -40,7 +40,7 @@ class TheMovieDB {
     getImage(options) {
         'use strict';
         return this.images_uri + options.size + "/" + options.file;
-    },
+    }
     client(options) {
         var result = null;
          $.ajax({
