@@ -42,17 +42,24 @@ class TheMovieDB {
         return this.images_uri + options.size + "/" + options.file;
     }
     client(options) {
+        let method, status, xhr;
+        method = options.method || "GET";
+        status = options.status || 200;
         var result = null;
-         $.ajax({
-            url: this.base_uri + options.url,
-            type: 'get',
-            dataType: 'json',
-            async: false,
-            success: function(data) {
-                result = data;
-            } 
-         });
-         return result
+        if (options.method === "POST") {
+            // Nothing here yet.
+        } else {
+            $.ajax({
+                url: this.base_uri + options.url,
+                type: 'get',
+                dataType: 'json',
+                async: false,
+                success: function(data) {
+                    result = data;
+                } 
+            });
+        }
+        return result
     }
 }
 class Configurations extends TheMovieDB {
